@@ -16,7 +16,7 @@ type AuthController struct {
 func (uc *AuthController) Authenticate(ctx *gin.Context) {
 	authorization := ctx.GetHeader("Authorization")
 	// auth.
-	_, err := auth.Authenticate(authorization)
+	err := auth.Authenticate(authorization)
 	if err != nil {
 		ctx.AbortWithStatusJSON(401, types.Map{"status": "Fail", "message": "401 Unauthorized"})
 		// uc.Send401(ctx)
