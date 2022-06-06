@@ -1,0 +1,296 @@
+
+/////////////////////////////// MERCHANTS ///////////////////////////////
+
+BASE_URL:"http://localhost:8080/"
+
+HEADERS:
+
+Headers are must for every request, Otherwise it will return 401 Unauthorized
+
+Authorization:Token 3f5ac11913d7e217785c1d3e07d52c86
+
+MERCHANT
+
+GET_ALL_MERCHANTS:
+
+    URL: http://localhost:8080/merchants
+    
+    REQUEST_TYPE:GET
+
+    PARAMS:
+    {
+        limit:10
+        page:1
+    }
+    Here limit and page fields are for pagination
+    
+    EXPECTED_RESPONSE:
+    {
+       "rows": [
+           {
+               "id": "1654428546962602747",
+               "code": "MRC_001",
+               "category": "Goods & Supply",
+               "description": "Goods And Supply",
+               "version_date": "2022-06-05T16:59:08.222+05:30"
+           },
+       ],
+       "status": "success",
+       "total": 5
+    } 
+
+GET_MERCHANTS_BY_ID:
+
+    URL: http://localhost:8080/merchant/:id
+
+    REQUEST_TYPE:GET
+
+    PARAMS:
+    {
+        id:"1654428546962602747"
+    }
+    
+    EXPECTED_RESPONSE:
+    {
+        
+        "row": {
+            "_id": "1654428546962602747",
+            "category": "Goods & Supply",
+            "code": "MRC_001",
+            "description": "Goods And Supply",
+            "version_date": "2022-06-05T16:59:08.222+05:30"
+        },
+        "status": "success"
+    }
+
+
+
+DELETE_MERCHANT_BY_ID:
+
+    URL: http://localhost:8080/merchant/:id
+
+    REQUEST_TYPE:DELETE
+
+    PARAMS:
+    {
+        id:"1654428546962602747"
+    }
+    
+    EXPECTED_RESPONSE:
+    {
+        "status": "success"
+    }
+
+CREATE_MERCHANT:
+
+    URL: http://localhost:8080/merchant/
+
+    REQUEST_TYPE:POST
+
+    BODY:
+        {
+        	"code":        "MRC_001",
+        	"category":    "Goods & Supply",
+        	"description": "Goods And Supply"
+        }
+    
+    EXPECTED_RESPONSE:
+    {
+        "status": "success"
+    }
+
+
+UPDATE_MERCHANT:
+
+    URL: http://localhost:8080/merchant/:id
+
+    REQUEST_TYPE:PUT
+    PARAMS:
+    {
+        id:"1654428546962602747"
+    }
+
+    BODY:
+        {
+        	"code":        "MRC_001",
+        	"category":    "Goods & Supply",
+        	"description": "Goods And Supply"
+        }
+    
+    EXPECTED_RESPONSE:
+    {
+        "status": "success"
+    }
+
+
+
+
+/////////////////////////////// MEMBERS///////////////////////////////
+
+
+BASE_URL:"http://localhost:8080/"
+
+HEADERS:
+
+Headers are must for every request, Otherwise it will return 401 Unauthorized
+
+Authorization:Token 3f5ac11913d7e217785c1d3e07d52c86
+
+MEMBER
+
+GET_MEMBERS_WRT_MERCHANT_CODE:
+
+    URL: http://localhost:8080//merchant/members/:code
+    
+    REQUEST_TYPE:GET
+
+    PARAMS:
+    {
+        limit:10
+        page:1
+        code:MRC_001
+    }
+    Here limit and page fields are for pagination
+    
+    EXPECTED_RESPONSE:
+    {
+       "rows": [
+            {
+                "id":"1654413535453952618",
+                "email_id" : "nagendra.y@gmail.com",
+                "merchant_code" : "MRC_001",
+                "first_name" : "nagendra",
+                "last_name" : "babu",
+                "version_date" : "2022-06-05T16:59:08.222+05:30"
+            }
+       ],
+       "status": "success",
+       "total": 5
+    } 
+
+
+GET_ALL_MEMBERS:
+
+    URL: http://localhost:8080/members
+    
+    REQUEST_TYPE:GET
+
+    PARAMS:
+    {
+        limit:10
+        page:1
+    }
+    Here limit and page fields are for pagination
+    
+    EXPECTED_RESPONSE:
+    {
+       "rows": [
+            {
+                "id":"1654413535453952618",
+                "email_id" : "nagendra.y@gmail.com",
+                "merchant_code" : "MRC_001",
+                "first_name" : "nagendra",
+                "last_name" : "babu",
+                "version_date" : "2022-06-05T16:59:08.222+05:30"
+            }
+       ],
+       "status": "success",
+       "total": 5
+    } 
+
+GET_MEMBERS_BY_ID:
+
+    URL: http://localhost:8080/member/:id
+
+    REQUEST_TYPE:GET
+
+    PARAMS:
+    {
+        id:"1654413535453952618"
+    }
+    
+    EXPECTED_RESPONSE:
+    {
+        
+        "row": {
+                "id":"1654413535453952618",
+                "email_id" : "nagendra.y@gmail.com",
+                "merchant_code" : "MRC_001",
+                "first_name" : "nagendra",
+                "last_name" : "babu",
+                "version_date" : "2022-06-05T16:59:08.222+05:30"
+        },
+        "status": "success"
+    }
+
+
+
+DELETE_MEMBER_BY_ID:
+
+    URL: http://localhost:8080/member/:id
+
+    REQUEST_TYPE:DELETE
+
+    PARAMS:
+    {
+        id:"1654413535453952618"
+    }
+    
+    EXPECTED_RESPONSE:
+    {
+        "status": "success"
+    }
+
+CREATE_MEMBER:
+
+    URL: http://localhost:8080/member/
+
+    REQUEST_TYPE:POST
+
+    BODY:
+        {
+                "email_id" : "nagendra.y@gmail.com",
+                "merchant_code" : "MRC_001",
+                "first_name" : "nagendra",
+                "last_name" : "babu",
+        }
+    
+    EXPECTED_RESPONSE:
+    {
+        "status": "success"
+    }
+
+
+UPDATE_MEMBER:
+
+    URL: http://localhost:8080/member/:id
+
+    REQUEST_TYPE:PUT
+    PARAMS:
+    {
+        id:"1654413535453952618"
+    }
+
+    BODY:
+        {
+                "email_id" : "nagendra.y@gmail.com",
+                "merchant_code" : "MRC_001",
+                "first_name" : "Nagendra",
+                "last_name" : "Babu",
+        }
+    
+    EXPECTED_RESPONSE:
+    {
+        "status": "success"
+    }
+
+
+
+
+{
+    "email_id" : "nagendra.y@gmail.com",
+    "merchant_code" : "MRC_001",
+    "first_name" : "nagendra",
+    "last_name" : "babu",
+    "version_date" : ISODate("2022-06-05T07:47:23.116Z")
+}
