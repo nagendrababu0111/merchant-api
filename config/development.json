@@ -1,0 +1,13 @@
+{
+  "connections": [
+   {
+      "host": "165.22.212.12",
+      "port": 27017,
+      "database": "commons",
+      "user": "qauser",
+      "password": "MGmxd35V3I"
+    }
+    
+  ]
+
+}
