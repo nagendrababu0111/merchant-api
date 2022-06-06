@@ -46,25 +46,12 @@ func (rc RootController) GetHeadrs(ctx *gin.Context) map[string][]string {
 	return headersMap
 }
 
-// Send401 -
-func (rc RootController) Send401(ctx *gin.Context) {
-	ctx.Header("Content-Type", "application/json")
-	ctx.JSON(http.StatusUnauthorized, "401 UnAutherized")
-	return
-}
-
-// Send402 -
-func (rc RootController) Send402(ctx *gin.Context) {
-	ctx.Header("Content-Type", "application/json")
-	ctx.JSON(http.StatusBadRequest, "402 Bad Request")
-}
-
-// MakeCustomSuccessResponse -
-func (rc RootController) MakeCustomSuccessResponse(ctx *gin.Context, result types.Map) {
-	result["status"] = "success"
-	ctx.Header("Content-Type", "application/json")
-	ctx.JSON(http.StatusOK, result)
-}
+// // MakeCustomSuccessResponse -
+// func (rc RootController) MakeCustomSuccessResponse(ctx *gin.Context, result types.Map) {
+// 	result["status"] = "success"
+// 	ctx.Header("Content-Type", "application/json")
+// 	ctx.JSON(http.StatusOK, result)
+// }
 
 // MakeSingleEntityResponse -
 func (rc RootController) MakeSingleEntityResponse(ctx *gin.Context, result interface{}) {
@@ -135,14 +122,4 @@ func (rc RootController) Paging(c *gin.Context) (types.Page, error) {
 	}
 
 	return p, nil
-}
-
-// GetAuthInfo -
-func (rc RootController) GetAuthInfo(c *gin.Context) types.Map {
-	authInfo, err := commons.StrToMap(c.Request.Header.Get("authInfo"))
-	if err != nil {
-		log.Println("while getting authinfo: ", err)
-		rc.MakeAnErrorResponse(c, err)
-	}
-	return authInfo
 }
