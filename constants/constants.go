@@ -1,7 +1,7 @@
 package constants
 
 // Database
-const DATA_BASE = "commons"
+const DATA_BASE = "merchant"
 
 // Tables
 const MARCHANT_COLL = "merchant"
