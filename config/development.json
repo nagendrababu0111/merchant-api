@@ -1,11 +1,11 @@
 {
   "connections": [
    {
-      "host": "165.22.212.12",
+      "host": "127.0.0.1",
       "port": 27017,
       "database": "merchant",
-      "user": "qauser",
-      "password": "MGmxd35V3I"
+      "user": "nagendra",
+      "password": "123456"
     }
     
   ]
